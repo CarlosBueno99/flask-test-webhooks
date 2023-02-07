@@ -8,8 +8,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     dt = datetime.now()
+    ticket_id = request.args.get('test')
 
-    print('this ran at', dt)
+    print(f'this ran at {dt} and from this ticket {ticket_id}')
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 
