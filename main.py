@@ -23,9 +23,10 @@ def index():
         "user_agent": user_agent
     }
 
+    json_object = json.dumps(body, indent = 4)
 
     print(body)
-    return jsonify(body)
+    return json_object
 
 
 
