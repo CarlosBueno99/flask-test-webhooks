@@ -16,7 +16,7 @@ def index():
     webhook_invocation_id = request.headers.get('X-Zendesk-Webhook-Invocation-Id')
     user_agent = request.headers.get('User-Agent')
 
-
+    print('=-=-=-=-=-=-=-=-=-=-=-= New request =-=-=-=-=-=-=-=-=-=-=-=')
     print(f'datetime_from_flask_server: {date_time}\nticket_id: {ticket_id}\naccount_id: {account_id}\nwebhook_id: {webhook_id}\nwebhook_invocation_id : {webhook_invocation_id}\nuser_agent: {user_agent}')
 
     
