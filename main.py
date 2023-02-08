@@ -9,9 +9,23 @@ app = Flask(__name__)
 def index():
     dt = datetime.now()
     ticket_id = request.args.get('test')
+    account_id = request.headers.get('X-Zendesk-Account-Id')
+    webhook_id = request.headers.get('X-Zendesk-Webhook-Id')
+    webhook_invocation_id = request.headers.get('X-Zendesk-Webhook-Invocation-Id')
+    user_agent = request.headers.get('User-Agent')
 
-    print(f'this ran at {dt} and from this ticket {ticket_id}')
-    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    body = {
+        "datetime_from_flask_server": dt,
+        "ticket_id": ticket_id,
+        "account_id": account_id,
+        "webhook_id": webhook_id,
+        "webhook_invocation_id" : webhook_invocation_id,
+        "user_agent": user_agent
+    }
+
+
+    print(body)
+    return jsonify(body)
 
 
 
