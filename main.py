@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=["POST","GET"])
 def index():
     dt = datetime.now()
     date_time = dt.strftime("%m/%d/%Y, %H:%M:%S")
