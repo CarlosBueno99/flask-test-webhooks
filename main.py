@@ -17,9 +17,10 @@ def index():
     user_agent = request.headers.get('User-Agent')
     internal_zendesk_endpoint_api = f'https://[you-subdomain].zendesk.com/api/v2/webhooks/{webhook_id}/invocations/{webhook_invocation_id}/attempts'
     invocation_ui_URL = f'https://[you-subdomain].zendesk.com/admin/apps-integrations/webhooks/webhooks/{webhook_id}/activity/{webhook_invocation_id}'
+    body = request.json
 
     print('=-=-=-=-=-=-=-=-=-=-=-= New request =-=-=-=-=-=-=-=-=-=-=-=')
-    print(f'datetime_from_flask_server: {date_time}\nticket_id: {ticket_id}\naccount_id: {account_id}\nwebhook_id: {webhook_id}\nwebhook_invocation_id : {webhook_invocation_id}\nuser_agent: {user_agent}\nui_endpoint: {invocation_ui_URL}\napi_endpoint: {internal_zendesk_endpoint_api}')
+    print(f'datetime_from_flask_server: {date_time}\nticket_id: {ticket_id}\naccount_id: {account_id}\nwebhook_id: {webhook_id}\nwebhook_invocation_id : {webhook_invocation_id}\nuser_agent: {user_agent}\nui_endpoint: {invocation_ui_URL}\napi_endpoint: {internal_zendesk_endpoint_api}\n request_body: {body})
 
     
 
@@ -32,7 +33,8 @@ def index():
         "webhook_invocation_id" : webhook_invocation_id,
         "user_agent": user_agent,
         "ui_endpoint": invocation_ui_URL,
-        "api_endpoint": internal_zendesk_endpoint_api
+        "api_endpoint": internal_zendesk_endpoint_api,
+        "request_body": body
     })
 
 
