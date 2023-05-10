@@ -20,7 +20,7 @@ def index():
     body = request.json
 
     print('=-=-=-=-=-=-=-=-=-=-=-= New request =-=-=-=-=-=-=-=-=-=-=-=')
-    print(f'datetime_from_flask_server: {date_time}\nticket_id: {ticket_id}\naccount_id: {account_id}\nwebhook_id: {webhook_id}\nwebhook_invocation_id : {webhook_invocation_id}\nuser_agent: {user_agent}\nui_endpoint: {invocation_ui_URL}\napi_endpoint: {internal_zendesk_endpoint_api}\n request_body: {body}', indent=4)
+    print(f'datetime_from_flask_server: {date_time}\nticket_id: {ticket_id}\naccount_id: {account_id}\nwebhook_id: {webhook_id}\nwebhook_invocation_id : {webhook_invocation_id}\nuser_agent: {user_agent}\nui_endpoint: {invocation_ui_URL}\napi_endpoint: {internal_zendesk_endpoint_api}\n request_body: {json.dumps(body, indent=4, sort_keys=True)}')
 
     
 
